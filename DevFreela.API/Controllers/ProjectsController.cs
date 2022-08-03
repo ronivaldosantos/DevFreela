@@ -1,11 +1,20 @@
 ﻿using DevFreela.API.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Options;
 
 namespace DevFreela.API.Controllers
 {
     [Route("api/projects")]
     public class ProjectsController :ControllerBase
     {
+        //Obtendo horário de funcionamento do sistema, no construtor.
+        private readonly OpeningTimeOption _option;
+        public ProjectsController(IOptions<OpeningTimeOption> option, ExampleClass exampleClass)
+        {
+            exampleClass.Name = "Update At Project Controller.";
+            _option = option.Value;
+        }
+
         //Exemplos: ?query=net core (passa uma query que deseja pesquisar) SELECT
         //api/projects
         [HttpGet]

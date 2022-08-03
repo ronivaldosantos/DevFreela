@@ -6,9 +6,15 @@ namespace DevFreela.API.Controllers {
     [Route("api/users")]
     public class UsersController : ControllerBase 
     {
+        //Injeção de dependência
+        public UsersController(ExampleClass exampleClass)
+        {
+
+        }
+
         //api/users/1
         [HttpGet("{id}")] //Find users for identity
-        public IActionResult GetById(int id)
+        public IActionResult GetById(int id)                           
         {
             return Ok();
         }
