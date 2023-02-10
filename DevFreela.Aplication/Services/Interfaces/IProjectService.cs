@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using DevFreela.Aplication.InputModels;
+using DevFreela.Aplication.ViewModels;
+
 
 namespace DevFreela.Aplication.Services.Interfaces
 {
@@ -10,6 +8,12 @@ namespace DevFreela.Aplication.Services.Interfaces
     {
         List<ProjecViewModel> GetAll(string query);
         ProjectDetailsViewModel GetById(int id);
+        int Create(NewProjectInputModel inputModel);
+        void Update(UpdateProjectInpModel inpModel);
+        void Delete(int id);
+        void CreateComment(CreateCommentInputModel inputModel);
+        void Start(int id);
+        void Finish(int id);   
 
     }
 }
