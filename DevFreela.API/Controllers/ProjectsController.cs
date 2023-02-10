@@ -49,7 +49,7 @@ namespace DevFreela.API.Controllers
 
         //UPDATE
         //api/projects/2 
-        [HttpPut("id")]
+        [HttpPut("{id}")]
         public IActionResult Put(int id, [FromBody] UpdateProjectModel updateProject)
         {
             if (updateProject.Description.Length > 200)
