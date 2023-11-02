@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DevFreela.Core", "DevFreela
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DevFreela.Infrastruture", "DevFreela.Infrastruture\DevFreela.Infrastruture.csproj", "{68D73024-04D7-4F53-A983-E0A1333776D8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DevFreela.Aplication", "DevFreela.Aplication\DevFreela.Aplication.csproj", "{DBC2C8E1-8A8D-4FDD-9CE6-20C13F66483E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DevFreela.Aplication", "DevFreela.Aplication\DevFreela.Aplication.csproj", "{DBC2C8E1-8A8D-4FDD-9CE6-20C13F66483E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

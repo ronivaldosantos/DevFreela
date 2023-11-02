@@ -1,18 +1,17 @@
 ﻿using DevFreela.API.Models;
+using DevFreela.Aplication.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Options;
 
 namespace DevFreela.API.Controllers
 {
     [Route("api/projects")]
     public class ProjectsController :ControllerBase
     {
-        //Obtendo horário de funcionamento do sistema, no construtor.
-        private readonly OpeningTimeOption _option;
-        public ProjectsController(IOptions<OpeningTimeOption> option, ExampleClass exampleClass)
+        //Injeção de dependência configurada em Program.cs (Singleton)
+        private readonly IProjectService _projectService;
+        public ProjectsController(IProjectService projectService)
         {
-            exampleClass.Name = "Update At Project Controller.";
-            _option = option.Value;
+            _projectService = projectService;
         }
 
         //Exemplos: ?query=net core (passa uma query que deseja pesquisar) SELECT
@@ -20,7 +19,8 @@ namespace DevFreela.API.Controllers
         [HttpGet]
         public IActionResult Get(string query) 
         { 
-            return Ok();
+            var projects = _projectService.GetAll(query);
+            return Ok(projects);
         }
 
         //Passa um id específico de um projeto a ser localizado SELECT
@@ -30,7 +30,16 @@ namespace DevFreela.API.Controllers
         {
             //possíveis retornos
             //return NotFound();
-            return Ok();        
+
+            var project = _projectService.GetById(id);
+
+            //Teste se existe projeto para ser exibido
+            if (project == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(project.Id);        
         }
 
         //CREATE
